@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+<div class="jumbotron">
+  <h1>Jumbotron</h1>
+  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
+</div>
 
 <div class="home">
 
@@ -9,11 +14,11 @@ layout: default
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+        <span class="post-meta" style="background-color: rgb(255,{{ post.date | date: "%-d" }}0,255);">{{ post.date | date: "%b %-d, %Y" }}</span>
 
-        <h2>
+        <span>
           <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+      </span>
       </li>
     {% endfor %}
   </ul>

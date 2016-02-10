@@ -1,0 +1,7 @@
+@import url(../fonts/th_k2d_july8.css);
+html {
+    margin-top: 60px;
+}
+h1,h2,h3{
+    font: 400 18px/1.5 THK2DJuly8, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
