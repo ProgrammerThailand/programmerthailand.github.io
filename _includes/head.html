@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/styles/default.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.1.0/highlight.min.js"></script>
 
-    <meta property="og:url"           content="{{ page.url }}" />
+    <meta property="og:url"           content="{{ site.url }}{{ page.url }}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
     <meta property="og:description"   content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}" />
