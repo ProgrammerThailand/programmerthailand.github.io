@@ -42,7 +42,7 @@ namespace common\models;
 use yii\db\ActiveRecord;
 
 class MyModel extends ActiveRecord{
-    
+
     public static function tableName()
     {
         return 'table_name';
@@ -65,9 +65,72 @@ class MyModel extends ActiveRecord{
 {% endhighlight %}
 
 View คือส่วนของการแสดงผล ใน Yii Framework 2 นั้นมี Widgets ต่างๆ ที่เข้ามาช่วยในการแสดงผลให้สามารถแสดงผลได้ตามต้องการ เช่น GridView จะแสดงข้อมูลออกมาในรูปแบบของตาราง ListView จะแสดงข้อมูลออกมาตาม template file ที่ต้องการได้ และ Detail View จะแสดงข้อมูลรายละเอียดในรายการข้อมูลที่เลือกได้ และมี Helpers ต่างๆ ที่เข้ามาช่วยในการแสดงผล เช่น Html helper เป็นตัวช่วยในการสร้างคำสั่ง html เช่น tag a, img เป็นต้น นอกจากจะแสดงผลแล้วยังมีส่วนของความปลอดภัยร่วมด้วย
+{% highlight php %}
+<?php
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+use yii\grid\GridView;
+use yii\widgets\ListView;
+
+echo DetailView::widget([
+    'model' => $model
+]);
+
+echo GridView::widget([
+    'dataProvider' => $dataProvider
+]);
+
+echo ListView::widget([
+    'dataProvider' => $dataProvider,
+    'itemView' => '_item_template' //item template file
+]);
+?>
+{% endhighlight %}
 
 Controller คือส่วนของการควบคุมการทำงานระหว่าง Model และ View เป็นส่วนหลักของ Logic Program
+{% highlight php %}
+<?php
+namespace frontend\controllers;
 
+use Yii;
+use yii\web\Controller;
+use common\models\Property;
+
+class PropertyController extends Controller
+{
+    public function actionIndex()
+    {
+        $query = Property::find();
+
+        $request = Yii::$app->request;
+
+        $type = $request->get('type');
+        $property_type = $request->get('property_type');
+        $address = $request->get('address');
+
+        $dataProvider = new ActiveDataProvider([
+            'query' => $query,
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC
+                ]
+            ]
+        ]);
+
+        $query->andFilterWhere(['like', 'property_status', $type])
+            ->andFilterWhere(['like', 'address', $address])
+            ->andFilterWhere(['like', 'property_type_id', $property_type]);
+
+        $count_item = $query->count();
+        return $this->render('index', [
+            'dataProvider' => $dataProvider,
+            'count_item' => $count_item,
+        ]);
+    }
+}
+
+?>
+{% endhighlight %}
 
 Performance
 ---
@@ -84,3 +147,13 @@ Security
 ---
 ในด้านของความปลอดภัยใน Yii Framework 2 มีตัวช่วยด้านความปลอดภัยมาให้เช่น CSRF หรือ Cross-site script forgery ที่มีให้แบบอัตโนมัติทุกครั้งที่มีการสร้างฟอร์มด้วย ActiveForm
 มีการป้องกันจาก XSS หรือ Cross-site scripting ที่จะดึงข้อมูลจากฐานข้อมูลมาแสดงผลด้วย HTML helpers และ HTMLPurifier เช่น Html::encode() และ HtmlPurifier::process() และความปลอดภัยด้านการป้องกันจาก SQL Injection ก็ยังมีมาให้ในตัวอีกด้วย เรียกได้ว่ามาแบบครบเครื่องเลยทีเดียวครับ
+
+{% highlight php %}
+<?php
+use yii\helpers\Html;
+use yii\helpers\HtmlPurifier;
+
+echo Html::encode($model->title);
+echo HtmlPurifier::process($model->description);
+?>
+{% endhighlight %}
