@@ -35,7 +35,34 @@ Professional
 Yii Framework 2 ออกแบบมาในรูปแบบ MVC หรือ Model View และ Controller ซึ่งเป็นการออกแบบสถาปัตยกรรมซอร์ฟแวร์แบบแบ่งชั้น และแน่นอนว่าเป็น Object Oriented Programming หรือ OOP 100%
 โดย Yii Framework เป็นกลุ่มของ Class ที่เขียนขึ้นเพื่อช่วยให้เราสามารถพัฒนา Web Application ได้อย่างรวดเร็ว
 
-Model คือตัวแทนของข้อมูล โดยใน Model จะมี Object Relation Mapping หรือ ORM ในการ Map Property ของ Class ให้เข้ากับ Attribute ของตาราง แบบอัตโนมัติ และยังมี Method ต่างๆ ที่ช่วยให้การทำงานกับข้อมูลได้สะดวกและรวดเร็วมากยิ่งขึ้น
+Model คือตัวแทนของข้อมูล โดยใน Model จะมี Object Relation Mapping หรือ ORM ในการ Map Property ของ Class ให้เข้ากับ Attribute ของตาราง แบบอัตโนมัติ และยังมี Method ต่างๆ ที่ช่วยให้การทำงานกับข้อมูลได้สะดวกและรวดเร็วมากยิ่งขึ้น ตัวอย่างของ Model
+{% highlight php %}
+<?php
+namespace common\models;
+use yii\db\ActiveRecord;
+
+class MyModel extends ActiveRecord{
+    
+    public static function tableName()
+    {
+        return 'table_name';
+    }
+    public function rules()
+    {
+        return [
+            [['attribute1', 'attribute2'], 'required']
+        ];
+    }
+    public function attributeLabels()
+    {
+        return [
+            'attribute1' => 'Your Text1',
+            'attribute2' => 'Your Text2'
+        ];
+    }
+}
+?>
+{% endhighlight %}
 
 View คือส่วนของการแสดงผล ใน Yii Framework 2 นั้นมี Widgets ต่างๆ ที่เข้ามาช่วยในการแสดงผลให้สามารถแสดงผลได้ตามต้องการ เช่น GridView จะแสดงข้อมูลออกมาในรูปแบบของตาราง ListView จะแสดงข้อมูลออกมาตาม template file ที่ต้องการได้ และ Detail View จะแสดงข้อมูลรายละเอียดในรายการข้อมูลที่เลือกได้ และมี Helpers ต่างๆ ที่เข้ามาช่วยในการแสดงผล เช่น Html helper เป็นตัวช่วยในการสร้างคำสั่ง html เช่น tag a, img เป็นต้น นอกจากจะแสดงผลแล้วยังมีส่วนของความปลอดภัยร่วมด้วย
 
