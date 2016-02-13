@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "เลือกจังหวัดโชว์อำเภอ เลือกอำเภอโชว์ตำบลด้วย Yii2 (Dependent Dropdownlist)"
+title:  "เลือกจังหวัดโชว์อำเภอ เลือกอำเภอโชว์ตำบลด้วย Yii2 (Dependent Drop-down list)"
 date:   2016-02-12 09:29:17 +0700
 categories: Yii2Tutorial
 ---
