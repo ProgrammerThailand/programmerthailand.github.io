@@ -8,8 +8,9 @@ categories: Yii2Basic
 
 ความหมายและที่มา
 ---
+<div class="text-center">
 <img src="/img/yii2basic/20160201/yii-logo.png" />
-
+</div>
 Yii หรือ ยี่ ย่อมาจาก Yes It Is เป็นเหมือนกับคำตอบหรือคำอุทานก็ว่าได้ที่ว่า มันเร็วจริงหรือเปล่า? มันมีความปลอดภัยไหม? มันมีความเป็นมืออาชีพหรือเปล่า? มันควรนำมาสร้าง Project ต่อไปหรือเปล่า? ใช่แล้วมันใช่จริงๆ (Yes It Is)
 
 สำหรับ Yii นั้นเป็น Open Source ซึ่งเป็น PHP Framework สำหรับสร้าง Web Application ที่ถูกเขียนขึ้นให้รองรับ PHP5 ช่วยให้สร้าง Web Application ได้อย่างรวดเร็ว
