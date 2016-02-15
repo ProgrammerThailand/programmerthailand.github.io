@@ -4,6 +4,9 @@ html {
     margin-top: 60px;
     font-family: 'Montserrat', sans-serif;
 }
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 h1,h2,h3{
     font: 400 18px/1.5 THK2DJuly8, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
