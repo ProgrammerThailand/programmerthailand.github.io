@@ -1,12 +1,13 @@
 @import url(../fonts/th_k2d_july8.css);
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Kanit);
 html {
     margin-top: 60px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Kanit', sans-serif;
 }
 body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', 'Kanit', sans-serif;
 }
 h1,h2,h3{
-    font: 400 18px/1.5 THK2DJuly8, 'Montserrat', "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font: 400 18px/1.5 THK2DJuly8, 'Montserrat', 'Kanit', "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
